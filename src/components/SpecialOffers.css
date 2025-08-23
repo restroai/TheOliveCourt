@@ -1,0 +1,266 @@
+.special-offers {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 50px;
+  opacity: 0.9;
+}
+
+.specials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.special-card {
+  background: white;
+  border-radius: 20px;
+  padding: 30px;
+  color: #2c3e50;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.special-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: var(--gradient);
+}
+
+.special-card.gradient-1::before {
+  --gradient: linear-gradient(135deg, #ff6b6b, #ee5a24);
+}
+
+.special-card.gradient-2::before {
+  --gradient: linear-gradient(135deg, #4ecdc4, #44a08d);
+}
+
+.special-card.gradient-3::before {
+  --gradient: linear-gradient(135deg, #a8edea, #fed6e3);
+}
+
+.special-card.gradient-4::before {
+  --gradient: linear-gradient(135deg, #ffecd2, #fcb69f);
+}
+
+.special-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+.special-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.special-icon {
+  font-size: 3rem;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+.discount-badge {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  color: white;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.special-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #2c3e50;
+}
+
+.special-description {
+  color: #7f8c8d;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.special-details {
+  margin-bottom: 25px;
+}
+
+.detail {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+.detail-icon {
+  font-size: 1.1rem;
+}
+
+.btn-reserve {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.btn-reserve:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+}
+
+.loyalty-program {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 40px;
+  backdrop-filter: blur(10px);
+}
+
+.loyalty-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.loyalty-text h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: white;
+}
+
+.loyalty-text p {
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+  opacity: 0.9;
+}
+
+.loyalty-benefits {
+  list-style: none;
+  margin-bottom: 30px;
+}
+
+.loyalty-benefits li {
+  margin-bottom: 12px;
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+.btn-join {
+  background: white;
+  color: #2c3e50;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+}
+
+.btn-join:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.3);
+}
+
+.loyalty-visual {
+  display: flex;
+  justify-content: center;
+}
+
+.points-card {
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  min-width: 280px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.card-header h4 {
+  color: #2c3e50;
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+}
+
+.points {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  color: white;
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.progress-bar {
+  background: #e1e8ed;
+  height: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.progress {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.card-body p {
+  color: #7f8c8d;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .specials-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .special-card {
+    padding: 25px;
+  }
+
+  .loyalty-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .loyalty-program {
+    padding: 30px 20px;
+  }
+
+  .points-card {
+    min-width: 250px;
+  }
+}
