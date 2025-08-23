@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/TheOliveCourt/static/css/main.82e54b64.css",
+    "main.js": "/TheOliveCourt/static/js/main.0c532bd5.js",
+    "index.html": "/TheOliveCourt/index.html",
+    "main.82e54b64.css.map": "/TheOliveCourt/static/css/main.82e54b64.css.map",
+    "main.0c532bd5.js.map": "/TheOliveCourt/static/js/main.0c532bd5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.82e54b64.css",
+    "static/js/main.0c532bd5.js"
+  ]
+}
