@@ -1,13 +1,15 @@
 {
   "files": {
     "main.css": "/TheOliveCourt/static/css/main.bd5ad986.css",
-    "main.js": "/TheOliveCourt/static/js/main.a60dc909.js",
+    "main.js": "/TheOliveCourt/static/js/main.2009fa11.js",
+    "static/media/paneerTikka.jpg": "/TheOliveCourt/static/media/paneerTikka.45ebe831cd0501b7a56c.jpg",
+    "static/media/samosaChaat2.webp": "/TheOliveCourt/static/media/samosaChaat2.517f97c6b3d16feda3e6.webp",
     "index.html": "/TheOliveCourt/index.html",
     "main.bd5ad986.css.map": "/TheOliveCourt/static/css/main.bd5ad986.css.map",
-    "main.a60dc909.js.map": "/TheOliveCourt/static/js/main.a60dc909.js.map"
+    "main.2009fa11.js.map": "/TheOliveCourt/static/js/main.2009fa11.js.map"
   },
   "entrypoints": [
     "static/css/main.bd5ad986.css",
-    "static/js/main.a60dc909.js"
+    "static/js/main.2009fa11.js"
   ]
 }
