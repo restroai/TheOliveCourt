@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './MenuItem.css';
 
-const MenuItem = ({ item }) => {
+const MenuItem = ({ item, addToMyDishes }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -32,7 +32,7 @@ const MenuItem = ({ item }) => {
       <div className="item-content">
         <div className="item-header">
           <h3 className="item-name">{item.name}</h3>
-          <span className="item-price">${item.price}</span>
+          <span className="item-price">₹{item.price}</span>
         </div>
         
         <p className="item-description">{item.description}</p>
@@ -44,9 +44,12 @@ const MenuItem = ({ item }) => {
         </div>
         
         <div className="item-actions">
-          <button className="btn-add-to-cart">
-            <span>🛒</span>
-            Add to Order
+          <button 
+            className="btn-add-to-cart"
+            onClick={() => addToMyDishes(item)}
+          >
+            <span>🍽️</span>
+            Add to My Dishes
           </button>
           <button className="btn-favorite">
             <span>❤️</span>

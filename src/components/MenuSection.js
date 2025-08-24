@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import MenuItem from './MenuItem';
 import './MenuSection.css';
 
-const MenuSection = ({ menuData, activeCategory, setActiveCategory }) => {
+const MenuSection = ({ menuData, activeCategory, setActiveCategory, addToMyDishes }) => {
   const [filter, setFilter] = useState('all');
 
   const categories = [
     { id: 'all', name: 'All Dishes', icon: '🍽️' },
     { id: 'appetizers', name: 'Appetizers', icon: '🥗' },
     { id: 'mainCourses', name: 'Main Courses', icon: '🍖' },
+    { id: 'breads', name: 'Breads', icon: '🫓' },
     { id: 'desserts', name: 'Desserts', icon: '🍰' },
     { id: 'drinks', name: 'Drinks', icon: '🍷' }
   ];
@@ -86,7 +87,7 @@ const MenuSection = ({ menuData, activeCategory, setActiveCategory }) => {
         <div className="menu-grid">
           {filteredItems.length > 0 ? (
             filteredItems.map(item => (
-              <MenuItem key={item.id} item={item} />
+              <MenuItem key={item.id} item={item} addToMyDishes={addToMyDishes} />
             ))
           ) : (
             <div className="no-items">

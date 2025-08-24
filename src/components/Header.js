@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Header.css';
 
-const Header = () => {
+const Header = ({ myDishes, setShowMyDishes }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -38,6 +38,14 @@ const Header = () => {
               <li><button onClick={() => scrollToSection('specials')}>Specials</button></li>
               <li><button onClick={() => scrollToSection('about')}>About</button></li>
               <li><button onClick={() => scrollToSection('contact')}>Contact</button></li>
+              <li>
+                <button 
+                  onClick={() => setShowMyDishes(true)}
+                  className="my-dishes-btn"
+                >
+                  🍽️ My Dishes {myDishes.length > 0 && `(${myDishes.reduce((total, dish) => total + dish.quantity, 0)})`}
+                </button>
+              </li>
             </ul>
           </nav>
 

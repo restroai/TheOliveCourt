@@ -14,23 +14,23 @@ const Hero = () => {
               Welcome to <span className="highlight">The Olive Court</span>
             </h1>
             <p className="hero-subtitle">
-              Experience culinary excellence with our carefully curated menu featuring 
-              the finest ingredients and innovative flavors from around the world.
+              Experience authentic North Indian cuisine with our carefully curated menu featuring 
+              traditional flavors, aromatic spices, and time-honored recipes from the heart of India.
             </p>
-            <div className="hero-features">
-              <div className="feature">
-                <span className="feature-icon">⭐</span>
-                <span>5-Star Dining</span>
+                          <div className="hero-features">
+                <div className="feature">
+                  <span className="feature-icon">⭐</span>
+                  <span>5-Star Dining</span>
+                </div>
+                <div className="feature">
+                  <span className="feature-icon">🌶️</span>
+                  <span>Authentic Spices</span>
+                </div>
+                <div className="feature">
+                  <span className="feature-icon">👨‍🍳</span>
+                  <span>Expert Chefs</span>
+                </div>
               </div>
-              <div className="feature">
-                <span className="feature-icon">🌱</span>
-                <span>Fresh Ingredients</span>
-              </div>
-              <div className="feature">
-                <span className="feature-icon">👨‍🍳</span>
-                <span>Expert Chefs</span>
-              </div>
-            </div>
             <div className="hero-buttons">
               <button className="btn btn-primary">View Menu</button>
               <button className="btn btn-secondary">Make Reservation</button>
@@ -44,11 +44,11 @@ const Hero = () => {
               </div>
               <div className="card-content">
                 <div className="special-dish">
-                  <span className="dish-emoji">🦞</span>
+                  <span className="dish-emoji">🍗</span>
                   <div className="dish-info">
-                    <h4>Lobster Thermidor</h4>
-                    <p>Fresh Maine lobster in classic French sauce</p>
-                    <span className="price">$38.99</span>
+                    <h4>Butter Chicken</h4>
+                    <p>Tender chicken in rich tomato and butter gravy</p>
+                    <span className="price">₹1582</span>
                   </div>
                 </div>
               </div>

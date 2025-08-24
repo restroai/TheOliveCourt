@@ -6,143 +6,261 @@ import SpecialOffers from './components/SpecialOffers';
 import About from './components/About';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import MyDishes from './components/MyDishes';
 import './App.css';
 
 function App() {
   const [activeCategory, setActiveCategory] = useState('all');
+  const [myDishes, setMyDishes] = useState([]);
+  const [showMyDishes, setShowMyDishes] = useState(false);
+
+  const addToMyDishes = (item) => {
+    setMyDishes(prevDishes => {
+      const existingDish = prevDishes.find(dish => dish.id === item.id);
+      if (existingDish) {
+        return prevDishes.map(dish => 
+          dish.id === item.id 
+            ? { ...dish, quantity: dish.quantity + 1 }
+            : dish
+        );
+      } else {
+        return [...prevDishes, { ...item, quantity: 1 }];
+      }
+    });
+  };
+
+  const removeFromMyDishes = (itemId) => {
+    setMyDishes(prevDishes => prevDishes.filter(dish => dish.id !== itemId));
+  };
+
+  const updateQuantity = (itemId, newQuantity) => {
+    if (newQuantity <= 0) {
+      removeFromMyDishes(itemId);
+    } else {
+      setMyDishes(prevDishes => 
+        prevDishes.map(dish => 
+          dish.id === itemId 
+            ? { ...dish, quantity: newQuantity }
+            : dish
+        )
+      );
+    }
+  };
 
   const menuData = {
     appetizers: [
       {
         id: 1,
-        name: "Truffle Arancini",
-        description: "Crispy risotto balls with black truffle and mozzarella, served with truffle aioli",
-        price: 14.99,
-        image: "🍘",
-        spicy: false,
+        name: "Samosa Chaat",
+        description: "Crispy samosas topped with chutneys, yogurt, and sev, served with tamarind sauce",
+        price: 749,
+        image: "🥟",
+        spicy: true,
         vegetarian: true,
         popular: true
       },
       {
         id: 2,
-        name: "Bruschetta Trio",
-        description: "Three varieties: classic tomato & basil, roasted red pepper & goat cheese, wild mushroom",
-        price: 12.99,
-        image: "🥖",
+        name: "Paneer Tikka",
+        description: "Marinated cottage cheese cubes grilled in tandoor with mint chutney",
+        price: 999,
+        image: "🧀",
         spicy: false,
         vegetarian: true,
-        popular: false
+        popular: true
       },
       {
         id: 3,
-        name: "Spicy Tuna Tartare",
-        description: "Fresh tuna with avocado, cucumber, and spicy mayo on crispy wonton",
-        price: 16.99,
-        image: "🐟",
+        name: "Chicken 65",
+        description: "Spicy deep-fried chicken with curry leaves and red chili, Andhra style",
+        price: 1165,
+        image: "🍗",
         spicy: true,
         vegetarian: false,
         popular: true
       },
       {
         id: 4,
-        name: "Bacon-Wrapped Dates",
-        description: "Medjool dates stuffed with blue cheese, wrapped in crispy bacon",
-        price: 13.99,
-        image: "🥓",
+        name: "Aloo Tikki",
+        description: "Spiced potato patties served with mint chutney and tamarind sauce",
+        price: 665,
+        image: "🥔",
         spicy: false,
-        vegetarian: false,
+        vegetarian: true,
+        popular: false
+      },
+      {
+        id: 5,
+        name: "Veg Spring Rolls",
+        description: "Crispy rolls filled with mixed vegetables and served with sweet chili sauce",
+        price: 832,
+        image: "🌯",
+        spicy: false,
+        vegetarian: true,
         popular: false
       }
     ],
     mainCourses: [
       {
-        id: 5,
-        name: "Wagyu Beef Tenderloin",
-        description: "8oz premium Wagyu beef with roasted garlic mashed potatoes and seasonal vegetables",
-        price: 45.99,
-        image: "🥩",
-        spicy: false,
-        vegetarian: false,
-        popular: true
-      },
-      {
         id: 6,
-        name: "Lobster Thermidor",
-        description: "Fresh Maine lobster in classic French sauce with saffron risotto",
-        price: 38.99,
-        image: "🦞",
+        name: "Butter Chicken",
+        description: "Tender chicken in rich tomato and butter gravy, served with naan bread",
+        price: 1582,
+        image: "🍗",
         spicy: false,
         vegetarian: false,
         popular: true
       },
       {
         id: 7,
-        name: "Wild Mushroom Risotto",
-        description: "Creamy Arborio rice with wild mushrooms, truffle oil, and aged Parmesan",
-        price: 24.99,
-        image: "🍄",
-        spicy: false,
-        vegetarian: true,
-        popular: false
-      },
-      {
-        id: 8,
-        name: "Spicy Thai Basil Chicken",
-        description: "Stir-fried chicken with Thai basil, chili, and vegetables in spicy sauce",
-        price: 22.99,
-        image: "🍗",
-        spicy: true,
-        vegetarian: false,
-        popular: false
-      },
-      {
-        id: 9,
-        name: "Pan-Seared Sea Bass",
-        description: "Fresh sea bass with lemon butter sauce, quinoa pilaf, and asparagus",
-        price: 32.99,
-        image: "🐠",
-        spicy: false,
-        vegetarian: false,
-        popular: false
-      }
-    ],
-    desserts: [
-      {
-        id: 10,
-        name: "Chocolate Lava Cake",
-        description: "Warm chocolate cake with molten center, served with vanilla ice cream",
-        price: 12.99,
-        image: "🍫",
+        name: "Paneer Butter Masala",
+        description: "Cottage cheese in creamy tomato gravy with aromatic spices",
+        price: 1415,
+        image: "🧀",
         spicy: false,
         vegetarian: true,
         popular: true
       },
       {
+        id: 8,
+        name: "Chicken Tikka Masala",
+        description: "Grilled chicken in creamy tomato sauce with fenugreek and cream",
+        price: 1665,
+        image: "🍗",
+        spicy: true,
+        vegetarian: false,
+        popular: true
+      },
+      {
+        id: 9,
+        name: "Dal Makhani",
+        description: "Slow-cooked black lentils with cream and butter, traditional Punjabi style",
+        price: 1082,
+        image: "🫘",
+        spicy: false,
+        vegetarian: true,
+        popular: false
+      },
+      {
+        id: 10,
+        name: "Rogan Josh",
+        description: "Tender lamb in aromatic Kashmiri gravy with yogurt and spices",
+        price: 1915,
+        image: "🐑",
+        spicy: true,
+        vegetarian: false,
+        popular: false
+      },
+      {
         id: 11,
-        name: "Crème Brûlée",
-        description: "Classic vanilla custard with caramelized sugar crust",
-        price: 10.99,
-        image: "🍮",
+        name: "Palak Paneer",
+        description: "Fresh spinach curry with cottage cheese and mild spices",
+        price: 1248,
+        image: "🥬",
         spicy: false,
         vegetarian: true,
         popular: false
       },
       {
         id: 12,
-        name: "Tiramisu",
-        description: "Italian dessert with coffee-soaked ladyfingers and mascarpone cream",
-        price: 11.99,
-        image: "☕",
+        name: "Chicken Biryani",
+        description: "Fragrant basmati rice cooked with tender chicken and aromatic spices",
+        price: 1832,
+        image: "🍚",
+        spicy: true,
+        vegetarian: false,
+        popular: true
+      },
+      {
+        id: 13,
+        name: "Veg Biryani",
+        description: "Aromatic rice with mixed vegetables and traditional biryani spices",
+        price: 1499,
+        image: "🍚",
+        spicy: false,
+        vegetarian: true,
+        popular: false
+      }
+    ],
+    breads: [
+      {
+        id: 14,
+        name: "Butter Naan",
+        description: "Soft leavened bread brushed with butter and baked in tandoor",
+        price: 332,
+        image: "🫓",
         spicy: false,
         vegetarian: true,
         popular: true
       },
       {
-        id: 13,
-        name: "Berry Pavlova",
-        description: "Light meringue with fresh berries and whipped cream",
-        price: 13.99,
-        image: "🍓",
+        id: 15,
+        name: "Garlic Naan",
+        description: "Naan bread topped with garlic and coriander, baked in tandoor",
+        price: 415,
+        image: "🫓",
+        spicy: false,
+        vegetarian: true,
+        popular: true
+      },
+      {
+        id: 16,
+        name: "Roti",
+        description: "Whole wheat flatbread made without oil, healthy option",
+        price: 249,
+        image: "🫓",
+        spicy: false,
+        vegetarian: true,
+        popular: false
+      },
+      {
+        id: 17,
+        name: "Laccha Paratha",
+        description: "Layered whole wheat bread with ghee, flaky and delicious",
+        price: 332,
+        image: "🫓",
+        spicy: false,
+        vegetarian: true,
+        popular: false
+      }
+    ],
+    desserts: [
+      {
+        id: 18,
+        name: "Gulab Jamun",
+        description: "Soft milk solids dumplings soaked in rose-flavored sugar syrup",
+        price: 582,
+        image: "🍯",
+        spicy: false,
+        vegetarian: true,
+        popular: true
+      },
+      {
+        id: 19,
+        name: "Rasmalai",
+        description: "Soft cottage cheese patties soaked in sweetened milk with cardamom",
+        price: 665,
+        image: "🥛",
+        spicy: false,
+        vegetarian: true,
+        popular: true
+      },
+      {
+        id: 20,
+        name: "Kheer",
+        description: "Traditional rice pudding with milk, sugar, and aromatic spices",
+        price: 499,
+        image: "🍚",
+        spicy: false,
+        vegetarian: true,
+        popular: false
+      },
+      {
+        id: 21,
+        name: "Jalebi",
+        description: "Crispy spiral-shaped sweet soaked in sugar syrup",
+        price: 582,
+        image: "🌀",
         spicy: false,
         vegetarian: true,
         popular: false
@@ -150,41 +268,41 @@ function App() {
     ],
     drinks: [
       {
-        id: 14,
-        name: "Signature Old Fashioned",
-        description: "Bourbon, bitters, sugar cube, and orange peel",
-        price: 14.99,
-        image: "🥃",
+        id: 22,
+        name: "Mango Lassi",
+        description: "Sweet yogurt drink with fresh mango pulp and cardamom",
+        price: 415,
+        image: "🥭",
         spicy: false,
         vegetarian: true,
         popular: true
       },
       {
-        id: 15,
-        name: "Fresh Fruit Sangria",
-        description: "Red wine with seasonal fruits and citrus",
-        price: 12.99,
-        image: "🍷",
-        spicy: false,
-        vegetarian: true,
-        popular: false
-      },
-      {
-        id: 16,
-        name: "Espresso Martini",
-        description: "Vodka, coffee liqueur, and fresh espresso",
-        price: 13.99,
+        id: 23,
+        name: "Masala Chai",
+        description: "Traditional spiced tea with milk, ginger, and aromatic spices",
+        price: 332,
         image: "☕",
         spicy: false,
         vegetarian: true,
         popular: true
       },
       {
-        id: 17,
-        name: "Craft Beer Selection",
-        description: "Local and imported craft beers",
-        price: 8.99,
-        image: "🍺",
+        id: 24,
+        name: "Thandai",
+        description: "Cooling drink with almonds, saffron, and rose water",
+        price: 499,
+        image: "🥛",
+        spicy: false,
+        vegetarian: true,
+        popular: false
+      },
+      {
+        id: 25,
+        name: "Sweet Lassi",
+        description: "Sweetened yogurt drink with rose water and cardamom",
+        price: 374,
+        image: "🥛",
         spicy: false,
         vegetarian: true,
         popular: false
@@ -194,17 +312,29 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
-      <Hero />
-      <MenuSection 
-        menuData={menuData} 
-        activeCategory={activeCategory} 
-        setActiveCategory={setActiveCategory} 
-      />
-      <SpecialOffers />
-      <About />
-      <Contact />
-      <Footer />
+      {showMyDishes ? (
+        <MyDishes 
+          myDishes={myDishes}
+          removeFromMyDishes={removeFromMyDishes}
+          updateQuantity={updateQuantity}
+          setShowMyDishes={setShowMyDishes}
+        />
+      ) : (
+        <>
+          <Header myDishes={myDishes} setShowMyDishes={setShowMyDishes} />
+          <Hero />
+          <MenuSection 
+            menuData={menuData} 
+            activeCategory={activeCategory} 
+            setActiveCategory={setActiveCategory}
+            addToMyDishes={addToMyDishes}
+          />
+          <SpecialOffers />
+          <About />
+          <Contact />
+          <Footer />
+        </>
+      )}
     </div>
   );
 }

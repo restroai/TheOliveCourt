@@ -147,3 +147,19 @@
     font-size: 1.5rem;
   }
 }
+
+.my-dishes-btn {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24) !important;
+  color: white !important;
+  padding: 8px 16px !important;
+  border-radius: 20px !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+  border: none !important;
+  cursor: pointer !important;
+}
+
+.my-dishes-btn:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4) !important;
+}
