@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import MenuSection from './components/MenuSection';
-import SpecialOffers from './components/SpecialOffers';
 import About from './components/About';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -11,8 +10,6 @@ import './App.css';
 
 import samosaChaat from "./Assets/Images/samosaChaat2.webp";
 import paneerTikka from "./Assets/Images/paneerTikka.jpg";
-
-
 
 function App() {
   const [activeCategory, setActiveCategory] = useState('all');
@@ -334,9 +331,8 @@ function App() {
             setActiveCategory={setActiveCategory}
             addToMyDishes={addToMyDishes}
           />
-          <SpecialOffers />
           <About />
-          <Contact />
+          {/* <Contact /> */}
           <Footer />
         </>
       )}

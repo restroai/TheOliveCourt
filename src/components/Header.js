@@ -50,7 +50,7 @@ const Header = ({ myDishes, setShowMyDishes }) => {
           </nav>
 
           <div className="header-actions">
-            <button className="reservation-btn">Reserve Table</button>
+            {/* <button className="reservation-btn">Reserve Table</button> */}
             <button 
               className="mobile-menu-btn"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
