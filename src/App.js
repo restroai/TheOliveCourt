@@ -9,6 +9,10 @@ import Footer from './components/Footer';
 import MyDishes from './components/MyDishes';
 import './App.css';
 
+import samosaChaat from "./Assets/Images/samosaChaat.jpg";
+
+
+
 function App() {
   const [activeCategory, setActiveCategory] = useState('all');
   const [myDishes, setMyDishes] = useState([]);
@@ -54,7 +58,7 @@ function App() {
         name: "Samosa Chaat",
         description: "Crispy samosas topped with chutneys, yogurt, and sev, served with tamarind sauce",
         price: 749,
-        image: "🥟",
+        image: ,
         spicy: true,
         vegetarian: true,
         popular: true
