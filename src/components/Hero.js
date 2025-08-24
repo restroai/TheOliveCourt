@@ -1,7 +1,18 @@
 import React from 'react';
 import './Hero.css';
+import TheOliveCourt from '../assets/images/TheOliveCourt.webp';
+import { scrollToSection } from '../components/Header.js'; 
+
 
 const Hero = () => {
+
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="hero" className="hero">
       <div className="hero-background">
@@ -32,26 +43,12 @@ const Hero = () => {
                 </div>
               </div>
             <div className="hero-buttons">
-              <button className="btn btn-primary">View Menu</button>
-              <button className="btn btn-secondary">Make Reservation</button>
+              <button className="btn btn-primary" onClick={() => scrollToSection('menu')}>View Menu</button>
             </div>
           </div>
           <div className="hero-image">
             <div className="floating-card">
-              <div className="card-header">
-                <h3>Today's Special</h3>
-                <span className="special-badge">Chef's Choice</span>
-              </div>
-              <div className="card-content">
-                <div className="special-dish">
-                  <span className="dish-emoji">🥬</span>
-                  <div className="dish-info">
-                    <h4>Palak Paneer</h4>
-                    <p>Fresh spinach curry with cottage cheese and mild spices</p>
-                    <span className="price">₹1248</span>
-                  </div>
-                </div>
-              </div>
+                <img className="rest-img" src={TheOliveCourt} alt="The Olive Court" width={400} border-radius="20px"/>
             </div>
           </div>
         </div>

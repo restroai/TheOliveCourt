@@ -122,13 +122,31 @@
   align-items: center;
 }
 
+
 .floating-card {
   background: white;
   border-radius: 20px;
-  padding: 30px;
+  padding: 10px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-  max-width: 350px;
   animation: float 6s ease-in-out infinite;
+  max-width: 90%;         /* so it doesn’t overflow small screens */
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;          /* add some breathing space on mobile */
+}
+
+.rest-img {
+  border-radius: 20px;
+  width: 100%;            /* take full container width */
+  height: auto;           /* keep aspect ratio */
+  object-fit: cover;      /* ensures it scales nicely */
+  display: block;
 }
 
 @keyframes float {

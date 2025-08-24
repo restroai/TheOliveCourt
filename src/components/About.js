@@ -113,29 +113,6 @@ const About = () => {
           </div>
         </div>
 
-        <div className="team-section">
-          <h3>Meet Our Team</h3>
-          <div className="team-grid">
-            {team.map((member, index) => (
-              <div key={index} className="team-member">
-                <div className="member-image">
-                  <span className="member-emoji">{member.image}</span>
-                </div>
-                <div className="member-info">
-                  <h4>{member.name}</h4>
-                  <p className="member-role">{member.role}</p>
-                  <p className="member-bio">{member.bio}</p>
-                  <div className="member-specialties">
-                    {member.specialties.map((specialty, idx) => (
-                      <span key={idx} className="specialty-tag">{specialty}</span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
         <div className="values-section">
           <h3>Our Values</h3>
           <div className="values-grid">
