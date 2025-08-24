@@ -128,7 +128,7 @@ app.post('/api/chat', async (req, res) => {
 app.post('/api/question', (req, res) => {
     const client = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
-    apiKey: "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",
+    apiKey: "sk-sample",
 
 });
 
