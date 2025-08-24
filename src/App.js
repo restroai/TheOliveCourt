@@ -10,6 +10,7 @@ import MyDishes from './components/MyDishes';
 import './App.css';
 
 import samosaChaat from "./Assets/Images/samosaChaat2.webp";
+import paneerTikka from "./Assets/Images/paneerTikka.jpg";
 
 
 
@@ -68,7 +69,7 @@ function App() {
         name: "Paneer Tikka",
         description: "Marinated cottage cheese cubes grilled in tandoor with mint chutney",
         price: 999,
-        image: "🧀",
+        image: paneerTikka,
         spicy: false,
         vegetarian: true,
         popular: true
