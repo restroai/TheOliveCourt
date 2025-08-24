@@ -1,15 +1,29 @@
 import React, { useState, useRef, useEffect } from 'react';
-import axios from 'axios';
 import './ChatPopup.css';
+import { getChatResponse } from './Suggestion'; // Import from Suggestion.js
 
-export default function ChatPopup({ menuData, addToMyDishes }) {
+export default function ChatPopup({ menuData }) {
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState([]);
   const [loading, setLoading] = useState(false);
   const containerRef = useRef();
 
-  useEffect(() => { if (containerRef.current) containerRef.current.scrollTop = containerRef.current.scrollHeight; }, [messages, open]);
+  useEffect(() => {
+    if (containerRef.current) containerRef.current.scrollTop = containerRef.current.scrollHeight;
+  }, [messages, open]);
+
+  // Show welcome message when chat is opened
+  useEffect(() => {
+    if (open && messages.length === 0) {
+      setMessages([
+        {
+          role: 'assistant',
+          content: "What would you like to have? Tell me your preference and I will suggest accordingly."
+        }
+      ]);
+    }
+  }, [open, messages.length]);
 
   const send = async (text) => {
     if (!text.trim()) return;
@@ -17,24 +31,12 @@ export default function ChatPopup({ menuData, addToMyDishes }) {
     setInput('');
     setLoading(true);
     try {
-      const apiBase = process.env.REACT_APP_API_BASE || (window.location && window.location.hostname === 'localhost' ? 'http://localhost:4000' : '');
-      const url = apiBase ? `${apiBase}/api/chat` : '/api/chat';
-      const resp = await axios.post(url, { message: text });
-      const data = resp.data;
-      // parse matches -> items
-      const flat = Object.values(menuData).flat();
-      const idMap = Object.fromEntries(flat.map(i => [String(i.id), i]));
-      const items = (data.matches || []).map(id => idMap[String(id)]).filter(Boolean);
-      setMessages(prev => [...prev, { role: 'assistant', content: data.reasoning || 'Here are some matches', items }]);
+      const answer = await getChatResponse(text, menuData); // Pass menuData here
+      setMessages(prev => [...prev, { role: 'assistant', content: answer }]);
     } catch (err) {
-      // Provide a clearer message for 404 vs other errors
-      const status = err?.response?.status;
-      const serverErr = err?.response?.data?.error || err?.response?.data || err.message;
-      let errMsg = serverErr || 'Server unreachable';
-      if (status === 404) errMsg = 'Endpoint not found (404). Is the backend running on port 4000 or is proxy configured?';
-      setMessages(prev => [...prev, { role: 'assistant', content: `Sorry, I could not reach the server: ${errMsg}` }]);
-      console.error('Chat request failed', { status, serverErr, err });
-    } finally { setLoading(false); }
+      setMessages(prev => [...prev, { role: 'assistant', content: 'Error: Unable to get response.' }]);
+    }
+    setLoading(false);
   };
 
   const onSubmit = (e) => { e?.preventDefault(); send(input); };
@@ -48,21 +50,6 @@ export default function ChatPopup({ menuData, addToMyDishes }) {
             {messages.map((m, i) => (
               <div key={i} className={`msg ${m.role}`}>
                 <div className="msg-text">{m.content}</div>
-                {m.items && m.items.length > 0 && (
-                  <div className="matches">
-                    {m.items.map(it => (
-                      <div key={it.id} className="match-item">
-                        <img src={it.image} alt={it.name} />
-                        <div className="match-info">
-                          <div className="name">{it.name}</div>
-                          <div className="meta">{[it.spicy && 'spicy', it.vegetarian && 'veg', it.popular && 'popular'].filter(Boolean).join(', ')}</div>
-                          <div className="price">₹{it.price}</div>
-                          <button onClick={() => addToMyDishes(it)} className="add-small">Add</button>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
               </div>
             ))}
             {loading && <div className="msg assistant"><div className="msg-text">Thinking...</div></div>}
