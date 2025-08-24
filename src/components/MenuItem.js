@@ -13,7 +13,7 @@ const MenuItem = ({ item, addToMyDishes }) => {
       <div className="item-image">
         {/* <span className="item-emoji">{item.image}</span> */}
         <img src={item.image} alt={item.name} width={375}/>
-        {item.popular && (
+        {/* {item.popular && (
           <div className="popular-badge">
             <span>⭐ Popular</span>
           </div>
@@ -27,22 +27,22 @@ const MenuItem = ({ item, addToMyDishes }) => {
           <div className="vegetarian-badge">
             <span>🌱 Vegetarian</span>
           </div>
-        )}
+        )} */}
       </div>
       
       <div className="item-content">
+        <div className="item-badges">
+          {item.popular && <span className="badge popular">⭐ Popular</span>}
+          {item.spicy && <span className="badge spicy">🌶️ Spicy</span>}
+          {item.vegetarian && <span className="badge vegetarian">🌱 Veg</span>}
+        </div>
         <div className="item-header">
+          
           <h3 className="item-name">{item.name}</h3>
           <span className="item-price">₹{item.price}</span>
         </div>
         
         <p className="item-description">{item.description}</p>
-        
-        <div className="item-badges">
-          {item.popular && <span className="badge popular">Popular</span>}
-          {item.spicy && <span className="badge spicy">Spicy</span>}
-          {item.vegetarian && <span className="badge vegetarian">Vegetarian</span>}
-        </div>
         
         <div className="item-actions">
           <button 
@@ -51,9 +51,6 @@ const MenuItem = ({ item, addToMyDishes }) => {
           >
             <span>🍽️</span>
             Add to My Dishes
-          </button>
-          <button className="btn-favorite">
-            <span>❤️</span>
           </button>
         </div>
       </div>

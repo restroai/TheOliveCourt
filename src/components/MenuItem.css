@@ -22,7 +22,7 @@
   height: 200px;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
   overflow: hidden;
 }
@@ -156,27 +156,6 @@
 .btn-add-to-cart:hover {
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
-}
-
-.btn-favorite {
-  background: white;
-  border: 2px solid #e1e8ed;
-  color: #7f8c8d;
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 1.2rem;
-}
-
-.btn-favorite:hover {
-  border-color: #ff6b6b;
-  color: #ff6b6b;
-  transform: scale(1.1);
 }
 
 @media (max-width: 768px) {
