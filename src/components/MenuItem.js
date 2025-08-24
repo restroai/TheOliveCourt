@@ -11,7 +11,8 @@ const MenuItem = ({ item, addToMyDishes }) => {
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="item-image">
-        <span className="item-emoji">{item.image}</span>
+        {/* <span className="item-emoji">{item.image}</span> */}
+        <img src={item.image} alt={item.name} width={375}/>
         {item.popular && (
           <div className="popular-badge">
             <span>⭐ Popular</span>

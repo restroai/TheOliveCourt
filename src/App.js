@@ -9,7 +9,7 @@ import Footer from './components/Footer';
 import MyDishes from './components/MyDishes';
 import './App.css';
 
-import samosaChaat from "./Assets/Images/samosaChaat.jpg";
+import samosaChaat from "./Assets/Images/samosaChaat2.webp";
 
 
 
@@ -58,7 +58,7 @@ function App() {
         name: "Samosa Chaat",
         description: "Crispy samosas topped with chutneys, yogurt, and sev, served with tamarind sauce",
         price: 749,
-        image: ,
+        image: samosaChaat,
         spicy: true,
         vegetarian: true,
         popular: true
