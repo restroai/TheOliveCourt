@@ -44,11 +44,11 @@ const Hero = () => {
               </div>
               <div className="card-content">
                 <div className="special-dish">
-                  <span className="dish-emoji">🍗</span>
+                  <span className="dish-emoji">🥬</span>
                   <div className="dish-info">
-                    <h4>Butter Chicken</h4>
-                    <p>Tender chicken in rich tomato and butter gravy</p>
-                    <span className="price">₹1582</span>
+                    <h4>Palak Paneer</h4>
+                    <p>Fresh spinach curry with cottage cheese and mild spices</p>
+                    <span className="price">₹1248</span>
                   </div>
                 </div>
               </div>
