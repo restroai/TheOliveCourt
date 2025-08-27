@@ -79,8 +79,8 @@ const MyDishes = ({ myDishes, removeFromMyDishes, updateQuantity, setShowMyDishe
                     +
                   </button>
                 </div>
-                <div className="dish-price">₹{dish.price}</div>
-                <div className="dish-total">₹{dish.price * dish.quantity}</div>
+                {/* <div className="dish-price">₹{dish.price}</div>
+                <div className="dish-total">₹{dish.price * dish.quantity}</div> */}
                 <button 
                   className="remove-btn"
                   onClick={() => removeFromMyDishes(dish.id)}
@@ -98,10 +98,10 @@ const MyDishes = ({ myDishes, removeFromMyDishes, updateQuantity, setShowMyDishe
             <span>Total Items:</span>
             <span>{getTotalItems()}</span>
           </div>
-          <div className="summary-row total">
+          {/* <div className="summary-row total">
             <span>Total Amount:</span>
             <span>₹{getTotalPrice()}</span>
-          </div>
+          </div> */}
           
           <div className="summary-actions">
             <button className="btn btn-primary" onClick={() => setShowMyDishes(false)}>

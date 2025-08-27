@@ -123,7 +123,7 @@ const MenuSection = ({ menuData, activeCategory, setActiveCategory, addToMyDishe
           <div className="ai-chat-popup">
             <div className="ai-chat-popup-card">
               <div className="ai-chat-header">
-                <span>🤖 AI Suggestions</span>
+                <span>✨ AI Suggestions</span>
               </div>
               <div className="ai-chat-body">
                 <input
@@ -141,6 +141,7 @@ const MenuSection = ({ menuData, activeCategory, setActiveCategory, addToMyDishe
                     setAiError('');
                     try {
                       setShowChat(false); // Hide popup after search
+                      setAiInput(''); // Clear input after search
                       const response = await getChatResponse(aiInput, menuData);
                       // Try to extract indexes from response (expecting a list of ids)
                       let indexes = [];
@@ -164,7 +165,7 @@ const MenuSection = ({ menuData, activeCategory, setActiveCategory, addToMyDishe
                 <button
                   className="ai-chat-action-btn"
                   style={{marginTop: '8px'}}
-                  onClick={() => { setShowChat(false); /* Do not reset filter or aiIndexes */ }}
+                  onClick={() => { setShowChat(false); setAiInput('');}}
                 >Close</button>
                 {aiError && <div className="ai-chat-error">{aiError}</div>}
               </div>
