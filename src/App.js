@@ -84,9 +84,9 @@ function App() {
             setActiveCategory={setActiveCategory}
             addToMyDishes={addToMyDishes}
           />
-          <About />
-          {/* <Contact /> */}
-          <Footer />
+          {/* <About /> */}
+          <Contact />
+          {/* <Footer /> */}
           <ChatPopup menuData={menuData} addToMyDishes={addToMyDishes} />
         </>
       )}
