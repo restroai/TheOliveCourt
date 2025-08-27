@@ -4,9 +4,7 @@ import './MenuSection.css';
 
 import Suggestion, { getChatResponse } from './Suggestion';
 
-const MenuSection = ({ menuData, activeCategory, setActiveCategory, addToMyDishes }) => {
-  const [filter, setFilter] = useState('all');
-  const [showChat, setShowChat] = useState(false);
+const MenuSection = ({ menuData, activeCategory, setActiveCategory, addToMyDishes, filter, setFilter, showChat, setShowChat }) => {
   const [aiIndexes, setAiIndexes] = useState([]);
   const [aiLoading, setAiLoading] = useState(false);
   const [aiError, setAiError] = useState('');
@@ -26,7 +24,7 @@ const MenuSection = ({ menuData, activeCategory, setActiveCategory, addToMyDishe
     { id: 'popular', name: 'Popular', icon: '⭐' },
     { id: 'vegetarian', name: 'Vegetarian', icon: '🌱' },
     { id: 'spicy', name: 'Spicy', icon: '🌶️' },
-    { id: 'ai', name: 'AI Suggestions', icon: '🤖' }
+    { id: 'ai', name: 'AI Suggestions', icon: '✨' }
   ];
 
   const getFilteredItems = () => {
@@ -86,6 +84,7 @@ const MenuSection = ({ menuData, activeCategory, setActiveCategory, addToMyDishe
                   <button
                     key={filterOption.id}
                     className={`filter-btn ${filter === filterOption.id ? 'active' : ''}`}
+                    data-filter={filterOption.id === 'ai' ? 'ai' : undefined}
                     onClick={() => {
                       setFilter(filterOption.id);
                       if (filterOption.id === 'ai') {
@@ -124,7 +123,7 @@ const MenuSection = ({ menuData, activeCategory, setActiveCategory, addToMyDishe
           <div className="ai-chat-popup">
             <div className="ai-chat-popup-card">
               <div className="ai-chat-header">
-                <span>🤖 AI Suggestions</span>
+                <span>✨ AI Suggestions</span>
               </div>
               <div className="ai-chat-body">
                 <input
@@ -142,6 +141,7 @@ const MenuSection = ({ menuData, activeCategory, setActiveCategory, addToMyDishe
                     setAiError('');
                     try {
                       setShowChat(false); // Hide popup after search
+                      setAiInput(''); // Clear input after search
                       const response = await getChatResponse(aiInput, menuData);
                       // Try to extract indexes from response (expecting a list of ids)
                       let indexes = [];
@@ -165,7 +165,7 @@ const MenuSection = ({ menuData, activeCategory, setActiveCategory, addToMyDishe
                 <button
                   className="ai-chat-action-btn"
                   style={{marginTop: '8px'}}
-                  onClick={() => { setShowChat(false); /* Do not reset filter or aiIndexes */ }}
+                  onClick={() => { setShowChat(false); setAiInput('');}}
                 >Close</button>
                 {aiError && <div className="ai-chat-error">{aiError}</div>}
               </div>

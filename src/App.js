@@ -17,6 +17,8 @@ function App() {
   const [myDishes, setMyDishes] = useState([]);
   const [showMyDishes, setShowMyDishes] = useState(false);
   const [menuData, setMenuData] = useState(null);
+  const [filter, setFilter] = useState('all');
+  const [showChat, setShowChat] = useState(false);
 
   useEffect(() => {
     const loadMenuData = async () => {
@@ -83,11 +85,15 @@ function App() {
             activeCategory={activeCategory} 
             setActiveCategory={setActiveCategory}
             addToMyDishes={addToMyDishes}
+            filter={filter}
+            setFilter={setFilter}
+            showChat={showChat}
+            setShowChat={setShowChat}
           />
           {/* <About /> */}
           <Contact />
           {/* <Footer /> */}
-          <ChatPopup menuData={menuData} addToMyDishes={addToMyDishes} />
+          <ChatPopup setFilter={setFilter} setShowChat={setShowChat}/>
         </>
       )}
     </div>

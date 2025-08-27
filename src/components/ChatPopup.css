@@ -1,5 +1,11 @@
-.chat-popup { position: fixed; right: 24px; bottom: 24px; z-index: 9999; }
-.chat-toggle { background:#ff6b6b; color:white; border:none; padding:10px 14px; border-radius:24px; cursor:pointer; }
+.chat-popup { 
+    position: fixed; 
+    right: 24px; 
+    bottom: 24px; 
+    z-index: 9999; 
+    padding: 100px 5px 5px 5px;
+}
+.chat-toggle { background:#ff6b6b; color:white; border:none; padding:16px 20px; border-radius:24px; cursor:pointer; }
 .chat-window { width:340px; height:420px; background:white; box-shadow:0 6px 18px rgba(0,0,0,.12); border-radius:8px; overflow:hidden; display:flex; flex-direction:column; margin-top:8px; }
 .chat-messages { flex:1; padding:12px; overflow:auto; }
 .msg { margin-bottom:10px; }
