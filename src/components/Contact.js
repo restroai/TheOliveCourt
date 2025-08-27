@@ -14,7 +14,7 @@ const Contact = () => {
   return (
     <section id="contact" className="contact section">
       <div className="container">
-        <h2 className="section-title">Partner With Us</h2>
+        <h2 className="section-title-contact">Partner With Us</h2>
         <div className="contact-content" style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
           <div className="contact-simple-card" style={{maxWidth: 480, width: '100%', background: '#fff', borderRadius: 18, boxShadow: '0 8px 32px rgba(44,62,80,0.10)', padding: '32px 24px', margin: '32px 0'}}>
             <h3 style={{textAlign: 'center'}}>Love our menu?</h3>

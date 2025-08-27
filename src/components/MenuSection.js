@@ -105,7 +105,7 @@ const MenuSection = ({ menuData, activeCategory, setActiveCategory, addToMyDishe
 
         <div className="menu-grid">
           {aiLoading ? (
-            <div className="no-items"><span>Loading AI suggestions...</span></div>
+            <div className="no-items"><span>Taste on the way, just stay!...</span></div>
           ) : filteredItems.length > 0 ? (
             filteredItems.map(item => (
               <MenuItem key={item.id} item={item} addToMyDishes={addToMyDishes} />
