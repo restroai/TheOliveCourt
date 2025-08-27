@@ -4,9 +4,7 @@ import './MenuSection.css';
 
 import Suggestion, { getChatResponse } from './Suggestion';
 
-const MenuSection = ({ menuData, activeCategory, setActiveCategory, addToMyDishes }) => {
-  const [filter, setFilter] = useState('all');
-  const [showChat, setShowChat] = useState(false);
+const MenuSection = ({ menuData, activeCategory, setActiveCategory, addToMyDishes, filter, setFilter, showChat, setShowChat }) => {
   const [aiIndexes, setAiIndexes] = useState([]);
   const [aiLoading, setAiLoading] = useState(false);
   const [aiError, setAiError] = useState('');
@@ -26,7 +24,7 @@ const MenuSection = ({ menuData, activeCategory, setActiveCategory, addToMyDishe
     { id: 'popular', name: 'Popular', icon: '⭐' },
     { id: 'vegetarian', name: 'Vegetarian', icon: '🌱' },
     { id: 'spicy', name: 'Spicy', icon: '🌶️' },
-    { id: 'ai', name: 'AI Suggestions', icon: '🤖' }
+    { id: 'ai', name: 'AI Suggestions', icon: '✨' }
   ];
 
   const getFilteredItems = () => {
@@ -86,6 +84,7 @@ const MenuSection = ({ menuData, activeCategory, setActiveCategory, addToMyDishe
                   <button
                     key={filterOption.id}
                     className={`filter-btn ${filter === filterOption.id ? 'active' : ''}`}
+                    data-filter={filterOption.id === 'ai' ? 'ai' : undefined}
                     onClick={() => {
                       setFilter(filterOption.id);
                       if (filterOption.id === 'ai') {
