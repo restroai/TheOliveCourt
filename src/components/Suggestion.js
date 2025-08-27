@@ -1,3 +1,5 @@
+import {restroAI} from "../utils/cipher";
+
 export async function getChatResponse(userInput, menuData) {
     console.log("User Input:", userInput);
     console.log("Menu Data:", menuData);
@@ -31,7 +33,7 @@ export async function getChatResponse(userInput, menuData) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      
+      "Authorization": `Bearer ${restroAI}`
     },
     body: JSON.stringify({
       model: "gpt-4o-mini",
