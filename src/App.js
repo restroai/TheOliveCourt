@@ -7,6 +7,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import MyDishes from './components/MyDishes';
 import './App.css';
+import ChatPopup from './components/ChatPopup';
 
 import { parseExcelFile } from './utils/excelParser';
 import menuDataFile from './assets/data/menu.xlsx';
@@ -86,6 +87,7 @@ function App() {
           <About />
           {/* <Contact /> */}
           <Footer />
+          <ChatPopup menuData={menuData} addToMyDishes={addToMyDishes} />
         </>
       )}
     </div>
