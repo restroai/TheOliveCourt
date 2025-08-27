@@ -130,7 +130,7 @@ const MenuSection = ({ menuData, activeCategory, setActiveCategory, addToMyDishe
                   type="text"
                   value={aiInput}
                   onChange={e => setAiInput(e.target.value)}
-                  placeholder="What are you craving for...?"
+                  placeholder="What are you craving...?"
                   disabled={aiLoading}
                   style={{ width: '80%' }}
                 />
