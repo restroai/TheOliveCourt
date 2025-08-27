@@ -35,8 +35,7 @@ const Header = ({ myDishes, setShowMyDishes }) => {
             <ul className="nav-list">
               <li><button onClick={() => scrollToSection('hero')}>Home</button></li>
               <li><button onClick={() => scrollToSection('menu')}>Menu</button></li>
-              <li><button onClick={() => scrollToSection('specials')}>Specials</button></li>
-              <li><button onClick={() => scrollToSection('about')}>About</button></li>
+              {/* <li><button onClick={() => scrollToSection('about')}>About</button></li> */}
               <li><button onClick={() => scrollToSection('contact')}>Contact</button></li>
               <li>
                 <button 
