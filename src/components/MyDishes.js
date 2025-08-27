@@ -56,17 +56,11 @@ const MyDishes = ({ myDishes, removeFromMyDishes, updateQuantity, setShowMyDishe
           {myDishes.map(dish => (
             <div key={dish.id} className="dish-item">
               <div className="dish-image">
-                <span className="dish-emoji">{dish.image}</span>
               </div>
               
               <div className="dish-details">
                 <h3 className="dish-name">{dish.name}</h3>
                 <p className="dish-description">{dish.description}</p>
-                <div className="dish-badges">
-                  {dish.popular && <span className="badge popular">Popular</span>}
-                  {dish.spicy && <span className="badge spicy">Spicy</span>}
-                  {dish.vegetarian && <span className="badge vegetarian">Vegetarian</span>}
-                </div>
               </div>
 
               <div className="dish-controls">

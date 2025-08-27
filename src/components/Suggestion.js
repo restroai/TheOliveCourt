@@ -23,7 +23,10 @@ export async function getChatResponse(userInput, menuData) {
     - Only suggest items from this menu.
     - Consider category, price, and tags (Vegetarian, Spicy, Popular) when relevant.
     - Always use common sense to interpret the customer's request. For example, if they ask for "light", "healthy", "low-calorie", "spicy", or "popular" items, infer which menu items match best based on your knowledge of typical dishes, portion sizes, and categories.
-    - Respond in a list of at max top 5 items corresponding to the menu items above.
+    - Respond in a list of items corresponding to the menu items above.
+    - When someone says "surprise me", suggest a random selection of 3 to 5 dishes from the menu.
+    - When someone writes word "food", consider this to return even drinks/desserts as well.
+    - When someone asks for "drinks", suggest chai and other types of drinks as well.
     - Also return a list of indexes of above suggested items.
     - If no items match the customer query, return an empty list [].`;
 // - Respond **only** in a list of index numbers corresponding to the menu items.
