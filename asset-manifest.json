@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/TheOliveCourt/static/css/main.e66e664e.css",
-    "main.js": "/TheOliveCourt/static/js/main.4f37ba7d.js",
+    "main.css": "/TheOliveCourt/static/css/main.b1d878b5.css",
+    "main.js": "/TheOliveCourt/static/js/main.f6faab81.js",
     "static/media/TheOliveCourt.webp": "/TheOliveCourt/static/media/TheOliveCourt.c5a0952547bbead95e75.webp",
     "static/media/menu.xlsx": "/TheOliveCourt/static/media/menu.b28ff9ea8af6ae046b33.xlsx",
     "index.html": "/TheOliveCourt/index.html",
-    "main.e66e664e.css.map": "/TheOliveCourt/static/css/main.e66e664e.css.map",
-    "main.4f37ba7d.js.map": "/TheOliveCourt/static/js/main.4f37ba7d.js.map"
+    "main.b1d878b5.css.map": "/TheOliveCourt/static/css/main.b1d878b5.css.map",
+    "main.f6faab81.js.map": "/TheOliveCourt/static/js/main.f6faab81.js.map"
   },
   "entrypoints": [
-    "static/css/main.e66e664e.css",
-    "static/js/main.4f37ba7d.js"
+    "static/css/main.b1d878b5.css",
+    "static/js/main.f6faab81.js"
   ]
 }
